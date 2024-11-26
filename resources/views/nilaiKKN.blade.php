@@ -2,8 +2,8 @@
 @section('title', "Nilai KKN Kelompok")
 @section('artikel')
 
-<div class="dashboard-title">Nilai KKN</div>
-<div class="container mt-5">
+    <div class="dashboard-title">Nilai KKN</div>
+    <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
@@ -40,6 +40,6 @@
             </table>
         </div>
     </div>
-                </div>
+    </div>
 
 @endsection
