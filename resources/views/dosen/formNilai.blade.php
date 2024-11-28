@@ -15,18 +15,15 @@
                 <div class="card-header"><b>Tambahkan Nilai KKN Mahasiswa</b></div>
  
                 <div class="card-body">
-                    <form method="" action="" enctype="multipart/form-data">
+                    <form action="/nilaiKKN" method="" enctype="multipart/form-data">
                         @csrf
- 
                         <div class="form-group mb-3">
                             <label>Inputkan Nilai</label>
                             <input type="text" class="form-control" required>
                         </div>
-
                         <div class="form-group"><br/>
                             <button type="submit" class="btn" style="background-color: #1A5139; color: white;">Simpan</button>
                         </div>
- 
                     </form>
                 </div>
             </div>

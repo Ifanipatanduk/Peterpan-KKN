@@ -57,12 +57,12 @@
         </div>
     </nav>
 
-    <!-- Dashboard Title -->
     <div class="container">
+        <a href="/dokumenAnggota">
         <h1 class="dashboard-title">DASHBOARD MAHASISWA</h1>
+        </a>
     </div>
 
-    <!-- Icon Section -->
     <div class="container icon-container">
         <img src="https://via.placeholder.com/100/28a745/FFFFFF?text=Graph" alt="Dokumen Kegiatan Icon">
         <p>DOKUMEN KEGIATAN</p>

@@ -2,6 +2,17 @@
 @section('title', "Kelompok KKN")
 @section('artikel')
 
+    <style>
+        .dashboard-title 
+        {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1A5319;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+    </style>
+
     <div class="dashboard-title">DAFTAR KELOMPOKK BIMBINGAN KKN</div>
         <main class="container border">
             <div class="row">
@@ -30,7 +41,7 @@
                             </tr>
                     </table>
                 </div>
-            </div>
         </main>
+        
 
 @endsection

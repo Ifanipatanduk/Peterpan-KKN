@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Rencana</title>
+    <title>Form Laporan</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
 </head>
@@ -12,17 +12,26 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header"><b>Tambahkan Rencana Kegiatan</b></div>
- 
+                <div class="card-header"><b>Tambahkan Laporan Kegiatan</b></div>
                 <div class="card-body">
-                    <form method="" action="" enctype="multipart/form-data">
+                    <form action="" method="" enctype="multipart/form-data">
                         @csrf
  
                         <div class="form-group mb-3">
-                            <label>Nama File</label>
-                            <input type="file" class="form-control" required>
+                            <label>Judul Laporan</label>
+                            <input type="text" class="form-control" required>
                         </div>
 
+                        <div class="form-group mb-3">
+                            <label>deskripsi Laporan</label>
+                            <textarea name="deskripsi" class="form-control" cols="30" rows="4" required></textarea>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label>File</label>
+                            <input type="file" class="form-control" require>
+                        </div>
+                        
                         <!-- <div class="form-check">
                         <label>Kategori Berita</label><br/>
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
