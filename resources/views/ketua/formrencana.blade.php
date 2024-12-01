@@ -15,33 +15,27 @@
                 <div class="card-header"><b>Tambahkan Rencana Kegiatan</b></div>
  
                 <div class="card-body">
-                    <form action="/rencanaKetua" method="" enctype="multipart/form-data">
-                        @csrf
- 
-                        <div class="form-group mb-3">
-                            <label>Nama File</label>
-                            <input type="file" class="form-control" required>
-                        </div>
+                <form action="{{ route('DokumenController.simpan') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group mb-3">
+                        <label>Judul File</label>
+                        <input type="text" name="judul" class="form-control" required>
+                    </div>
 
-                        <!-- <div class="form-check">
-                        <label>Kategori Berita</label><br/>
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Default radio
-                            </label>
-                        </div> -->
-                        <!-- <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                Default checked radio
-                            </label>
-                        </div> -->
+                    <div class="form-group mb-3">
+                        <label>Deskripsi</label>
+                        <input type="text" name="deskripsi" class="form-control" required>
+                    </div>
 
-                        <div class="form-group"><br/>
-                            <button type="submit" class="btn" style="background-color: #1A5139; color: white;">Simpan</button>
-                        </div>
- 
-                    </form>
+                    <div class="form-group mb-3">
+                        <label>File</label>
+                        <input type="file" name="file" class="form-control" required>
+                    </div>
+
+                    <div class="form-group"><br/>
+                        <button type="submit" class="btn" style="background-color: #1A5139; color: white;">Simpan</button>
+                    </div>
+                </form>
                 </div>
             </div>
         </div>

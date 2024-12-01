@@ -80,13 +80,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Dashboard</a>
+                        <a class="nav-link" href="/dashboardketua">Dashboard</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Akun</a>
+                        <a class="nav-link" href="#">Ubah Password</a>
                     </li>
                 </ul>
             </div>
@@ -104,19 +104,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
     <script>
-    // $(document).ready(function () {
-    //     $('#example').DataTable({
-    //         columnDefs: 
-    //         [
-    //             { width:'5%', targets:0 }, 
-    //             { width:'75%', targets:1 }, 
-    //             { width:'11%', targets:2 },
-    //             { width:'11%', targets:2 },
-    //             { width:'11%', targets:2 } 
-    //         ]   
-    //     });
-    // });
-
     new DataTable('#example');
     </script>
 </body>

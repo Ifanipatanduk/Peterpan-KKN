@@ -39,8 +39,6 @@
                             </td>
                         </tr>
                 </table>
-
-                <p>Catatan Revisi Logbook Kegiatan</p>
             </div>
         </div>
     </main>

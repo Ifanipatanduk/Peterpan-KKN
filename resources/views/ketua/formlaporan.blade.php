@@ -14,42 +14,25 @@
             <div class="card">
                 <div class="card-header"><b>Tambahkan Laporan Kegiatan</b></div>
                 <div class="card-body">
-                    <form action="" method="" enctype="multipart/form-data">
+                    <form action="{{ route('DokumenController.simpanLaporan') }}" method="POST" enctype="multipart/form-data">
                         @csrf
- 
                         <div class="form-group mb-3">
                             <label>Judul Laporan</label>
-                            <input type="text" class="form-control" required>
+                            <input type="text" name="judul" class="form-control" required>
                         </div>
 
                         <div class="form-group mb-3">
                             <label>deskripsi Laporan</label>
-                            <textarea name="deskripsi" class="form-control" cols="30" rows="4" required></textarea>
+                           <input type="text" name="deskripsi" class="form-control" required>
                         </div>
 
                         <div class="form-group mb-3">
                             <label>File</label>
-                            <input type="file" class="form-control" require>
+                            <input type="file" name="file" class="form-control" require>
                         </div>
-                        
-                        <!-- <div class="form-check">
-                        <label>Kategori Berita</label><br/>
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Default radio
-                            </label>
-                        </div> -->
-                        <!-- <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                Default checked radio
-                            </label>
-                        </div> -->
-
                         <div class="form-group"><br/>
                             <button type="submit" class="btn" style="background-color: #1A5139; color: white;">Simpan</button>
                         </div>
- 
                     </form>
                 </div>
             </div>

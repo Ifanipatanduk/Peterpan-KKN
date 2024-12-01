@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DokumenController;
 
 Route::get('/', function () {
     return view('portal');
@@ -31,18 +32,31 @@ Route::get('/dokumenKelompokKKN', function () {return view('dosen/dokumenKelompo
 Route::get('/rencanaKegiatan', function () {return view('dosen/rencanaKegiatan');});
 Route::get('/laporanKegiatan', function () {return view('dosen/laporanKegiatan');});
 Route::get('/logbookKegiatan', function () {return view('dosen/logbookKegiatan');});
-Route::get('/nilaiKKN', function () {return view('dosen/nilaiKKN');});
-Route::get('/nilaiKKN/formNilai', function () {return view('dosen/formNilai');});
+// Route::get('/nilaiKKN', function () {return view('dosen/nilaiKKN');});
+// Route::get('/nilaiKKN/formNilai', function () {return view('dosen/formNilai');});
+Route::get('/nilaiKKN', [DokumenController::class, 'nilaiKKN'])->name('DokumenController.nilaiKKN');
+Route::get('/nilaiKKN/formNilai', [DokumenController::class, 'formNilai'])->name('DokumenController.formNilai');
+Route::post('/nilaiKKN/simpanNilai', [DokumenController::class, 'simpanNilai'])->name('DokumenController.simpanNilai');
 
 //Ketua Kelompok
+Route::get('/dokumen', [DokumenController::class, 'dokumen'])->name('DokumenController.dokumen');
+Route::get('/rencanaKetua', [DokumenController::class, 'rencanaKetua'])->name('DokumenController.rencanaKetua');
+Route::get('/rencanaKetua/formrencana', [DokumenController::class, 'formrencana'])->name('DokumenController.formrencana');
+Route::post('/rencanaKetua/simpan', [DokumenController::class, 'simpan'])->name('DokumenController.simpan');
+Route::delete('/delete/dokumen/{id}', [DokumenController::class, 'deletedokumen'])->name('DokumenController.deleteDokumen');
+Route::get('/show/{nama_file}', [DokumenController::class, 'show'])->name('DokumenController.show');
+Route::get('/laporanketua', [DokumenController::class, 'laporanKetua'])->name('DokumenController.laporanKetua');
+Route::get('/laporanKetua/formlaporan', [DokumenController::class, 'formlaporan'])->name('DokumenController.formlaporan');
+Route::post('/laporanKetua/simpanLaporan', [DokumenController::class, 'simpanLaporan'])->name('DokumenController.simpanLaporan');
+Route::delete('/delete/laporan/{id}', [DokumenController::class, 'deleteLaporan'])->name('DokumenController.deleteLaporan');
+// Route::get('/show/{nama_file}', [DokumenController::class, 'show'])->name('DokumenController.show');
+Route::get('/logbookketua', [DokumenController::class, 'logbookketua'])->name('DokumenController.logbookketua');
+Route::get('/logbookketua/formlogbook', [DokumenController::class, 'formlogbook'])->name('DokumenController.formlogbook');
+Route::post('/logbookketua/simpanLogbook', [DokumenController::class, 'simpanlogbook'])->name('DokumenController.simpanlogbook');
+Route::delete('/delete/logbook/{id}', [DokumenController::class, 'deleteLogbook'])->name('logbook.delete');
+
 Route::get('/dashboardketua', function () {return view('ketua/dashboardketua');});
 Route::get('/dokumenKetuaKelompok', function () {return view('ketua/dokumenKetuaKelompok');});
-Route::get('/rencanaKetua', function () {return view('ketua/rencanaKetua');});
-Route::get('/rencanaketua/formrencana', function () {return view('ketua/formrencana');});
-Route::get('/laporanketua', function () {return view('ketua/laporanketua');});
-Route::get('/laporanketua/formlaporan', function () {return view('ketua/formlaporan');});
-Route::get('/logbookketua', function () {return view('ketua/logbookketua');});
-Route::get('/logbookketua/formlogbook', function () {return view('ketua/formlogbook');});
 
 //Mahasiswa/Anggota Kelompok
 Route::get('/dashboardsiswa', function () {return view('anggota/dashboardsiswa');});

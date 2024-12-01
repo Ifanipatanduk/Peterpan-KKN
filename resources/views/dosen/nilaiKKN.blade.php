@@ -22,15 +22,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                <tr>                        
-                    <th class="text-center">1</th>
-                    <th class="text-center">12345678</th>
-                    <th class="text-center">Joe</th>
+                @foreach ($dokumens as $dokumen)   
+                <tr>                     
+                    <th class="text-center">{{ $loop->iteration}}</th>
                     <th class="text-center"></th>
+                    <th class="text-center"></th>
+                    <th class="text-center">{{ $dokumen->nilai}}</th>
                     <td class="text-center">
                         <a href="/nilaiKKN/formNilai" class="btn" style="background-color:#1A5319; color: white; height: 40px; width: 80px; border-radius: 5px;" >Edit</a>                     
                     </td>
                 </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>

@@ -1,10 +1,10 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <style>
+@extends('layouts/mainKetua')
+@section('title', "Dokumen Ketua Kelompok")
+@section('artikel')
+
+@endsection
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <style>
         .dashboard-title {
             font-size: 1.5rem;
             font-weight: bold;
@@ -13,59 +13,98 @@
             margin-bottom: 1rem;
         }
 
-        #pillNav2 
-        {
+        #pillNav2 {
             display: flex; 
             justify-content: center;
             align-items: center; 
             border: 2px solid #1A5319;
             border-radius: 0.375rem;
             padding: 0.5rem; 
-            gap: 1rem; 
+            gap: 1rem;
         }
 
-        #pillNav2 {
+        #pillNav2 .nav-link {
             --bs-nav-link-color: var(--bs-white);
             --bs-nav-pills-link-active-color: var(--bs-white);         
             --bs-nav-pills-link-active-bg: #1A5319;
+            color: #1A5319;
+            background-color: #fff;
+            border-radius: 20px;
+            transition: background-color 0.3s, color 0.3s;
         }
-        </style>
-    </head>
 
-    <body>
-        <div class="container-fluid">
-            <div class="row">
-                <main class="col-md-9 col-lg-10 px-4">
-                    <div class="dashboard-title">DOKUMEN KELOMPOK</div>
-                    <ul class="nav nav-pills nav-fill gap-2 p-1 small rounded-5 shadow-sm" id="pillNav2" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active rounded-5" id="rencana-tab" data-bs-toggle="tab" type="button" role="tab" aria-selected="true" aria-controls="rencana">Rencana Kelompok</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link rounded-5" id="logbook-tab" data-bs-toggle="tab" type="button" role="tab" aria-selected="false" aria-controls="logbook">Logbook Kelompok</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link rounded-5" id="laporan-tab" data-bs-toggle="tab" type="button" role="tab" aria-selected="false" aria-controls="laporan">Laporan Kelompok</button>
-                        </li>
-                    </ul>
+        #pillNav2 .nav-link.active {
+            color: #fff;
+            background-color: #1A5319;
+        }
 
-                    <div class="tab-content mt-3">
-                        <div class="tab-pane fade show active" id="rencana" role="tabpanel" aria-labelledby="rencana-tab">
-                            <ul>
+        .tab-content ul {
+            list-style: none;
+            padding: 0;
+        }
+    </style>
+</head>
 
-                            </ul>
-                        </div>
-                        <div class="tab-pane fade" id="logbook" role="tabpanel" aria-labelledby="logbook-tab">
-                            <ul></ul>
-                        </div>
-                        <div class="tab-pane fade" id="laporan" role="tabpanel" aria-labelledby="laporan-tab">
-                            <ul></ul>
-                        </div>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <main class="col-md-9 col-lg-10 mx-auto px-4">
+                <div class="dashboard-title">DOKUMEN KELOMPOK</div>
+                <ul class="nav nav-pills nav-fill gap-2 p-1 small rounded-5 shadow-sm" id="pillNav2" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button 
+                            class="nav-link active" id="rencana-tab" data-bs-toggle="tab" data-bs-target="#rencana"  type="button"  role="tab" aria-controls="rencana" aria-selected="true">
+                            Rencana Kelompok
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="logbook-tab" data-bs-toggle="tab" data-bs-target="#logbook"  type="button" role="tab"  aria-controls="logbook"  aria-selected="false">
+                            Logbook Kelompok
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button  class="nav-link" id="laporan-tab" data-bs-toggle="tab" data-bs-target="#laporan" type="button" role="tab" aria-controls="laporan" aria-selected="false">
+                            Laporan Kelompok
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="rencana" role="tabpanel" aria-labelledby="rencana-tab">
+                        <ul>
+                        @forelse($dokumens as $dokumen)
+                            <li>{{ $dokumen->Judul }} - {{ $dokumen->Deskripsi }} 
+                                <a href="{{ asset('storage/' . $dokumen->File) }}" target="_blank">{{ $dokumen->nama_asli }}</a>
+                            </li>
+                        @empty
+                            <li>Tidak ada dokumen rencana yang tersedia.</li>
+                        @endforelse
+                        </ul>
                     </div>
-                </main>
-            </div>
+                    <div class="tab-pane fade" id="logbook" role="tabpanel" aria-labelledby="logbook-tab">
+                        <ul>
+                        @forelse($logbooks as $logbook)
+                            <li>{{ $logbook->tanggal_kegiatan }} - {{ $logbook->deskripsi }}</li>
+                        @empty
+                            <li>Tidak ada logbook yang tersedia.</li>
+                        @endforelse
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="laporan" role="tabpanel" aria-labelledby="laporan-tab">
+                        <ul>
+                        @forelse($laporans as $laporan)
+                            <li>{{ $laporan->Judul }} - {{ $laporan->Deskripsi }}</li>
+                        @empty
+                            <li>Tidak ada laporan yang tersedia.</li>
+                        @endforelse
+                        </ul>
+                    </div>
+                </div>
+            </main>
         </div>
+    </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
-    </html>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+@endsection

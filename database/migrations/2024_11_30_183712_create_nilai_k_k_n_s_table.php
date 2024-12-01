@@ -6,16 +6,23 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Run the migrations.
+     */
     public function up(): void
     {
-        Schema::create('nilaikkns', function (Blueprint $table) {
+        Schema::create('nilai_k_k_n_s', function (Blueprint $table) {
             $table->id();
-            $table->integer('nilai');
+            $table->integer('Nilai');
+            $table->timestamps();
         });
     }
 
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
-        Schema::dropIfExists('nilaikkns');
+        Schema::dropIfExists('nilai_k_k_n_s');
     }
 };

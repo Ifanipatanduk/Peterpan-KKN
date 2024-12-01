@@ -19,7 +19,7 @@
                         @csrf
                         <div class="form-group mb-3">
                             <label>Inputkan Nilai</label>
-                            <input type="text" class="form-control" required>
+                            <input type="text" name="nilai" class="form-control" required>
                         </div>
                         <div class="form-group"><br/>
                             <button type="submit" class="btn" style="background-color: #1A5139; color: white;">Simpan</button>

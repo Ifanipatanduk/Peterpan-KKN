@@ -48,8 +48,6 @@
             </table>
         </div>
     </div>
-
-    <p class="mt-4">Catatan Revisi Logbook Kegiatan</p>
 </main>
 
 @endsection

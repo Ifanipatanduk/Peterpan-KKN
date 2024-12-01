@@ -1,5 +1,5 @@
 @extends('layouts/mainKetua')
-@section('title', "Dokuemn Ketua Kelompok")
+@section('title', "Dokumen Ketua Kelompok")
 @section('artikel')
 @include('layouts/dokumenKetua')
 

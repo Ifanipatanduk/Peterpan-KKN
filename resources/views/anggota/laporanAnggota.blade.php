@@ -48,8 +48,6 @@
                                 </td>
                             </tr>
                     </table>
-
-                    <p>Catatan Revisi Laporan Kegiatan</p>
                 </div>
                 </div>
             </div>
