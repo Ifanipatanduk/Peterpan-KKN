@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Tambah Data Dosen</title>
+    <title>Form Tambah Data Mahasiswa</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
 </head>
@@ -12,14 +12,19 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header"><b>Tambahkan Data Dosen</b></div>
+                <div class="card-header"><b>Tambahkan Data Mahasiswa</b></div>
 
                 <div class="card-body">
-                <form action="{{ route('DokumenController.simpandosen')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('DokumenController.simpanmahasiswa')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                         <div class="form-group mb-3">
-                            <label>Nama Dosen</label>
-                            <input type="text" name="nama_dosen" class="form-control" required>
+                            <label>Nim</label>
+                            <input type="text" name="nim" class="form-control" required>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label>Nama Mahasiswa</label>
+                            <input type="text" name="nama" class="form-control" required>
                         </div>
 
                         <div class="form-group mb-3">
@@ -45,6 +50,25 @@
                                 <label for="Perempuan" class="form-check-label">Perempuan</label>
                             </div>
                         </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="prodi">Prodi</label>
+                            <select name="prodi" id="prodi" class="form-control" required>
+                                <option value=""> Pilih Prodi</option>
+                                <option value="Prodi Filsafat Keilahian">Filsafat Keilahian</option>
+                                <option value="Prodi Arsitektur">Arsitektur</option>
+                                <option value="Prodi Desain Produk">Desain Produk</option>
+                                <option value="Prodi Biologi">Biologi</option>
+                                <option value="Prodi Manajemen">Manajemen</option>
+                                <option value="Prodi Akuntansi">Akuntansi</option>
+                                <option value="Prodi Informatika">Informatika</option>
+                                <option value="Prodi Sistem Informasi">Sistem Informaasi</option>
+                                <option value="Prodi Kedokteran">Kedokteran</option>
+                                <option value="Prodi Sistem Informasi">Profesi Kedokteran</option>
+                                <option value="Prodi Pendidikan Bahasa Inggris">Pendidikan Bahasa Inggris</option>
+                                <option value="Prodi Humaniora">Studi Humanitas</option>
+                            </select>
                         </div>
                         
                         <div class="form-group">

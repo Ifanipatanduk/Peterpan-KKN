@@ -1,37 +1,52 @@
 @extends('layouts/mainAdmin')
-@section('title',"Daftar Berita")
+@section('title', "Daftar Berita")
 @section('artikel')
-    <div class="card">
-        <div class="class-header" style="text-align: right;">
-            <a href="/berita/formberita" class="btn" style="background-color: #347928; color: white;">
-                <i class="bi bi-plus-square"></i> Tambah Berita
-            </a>
-        </div>
 
-                <table id="example" class="display" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Judul Berita</th>
-                                <th>Isi Berita</th>
-                                <th>Foto</th>
-                                <th>Tanggal posting</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Ulang Tahun UKDW</td>
-                                <td>UKDW merayakan ulant tahun yang ke-xx pada tanggal 31 oktober</td>
-                                <td></td>
-                                <td>31-10-2024</td>
-                                <td>
-                                    <button type="submit" class="btn" style="background-color: #1230AE; color: white; height: 40px; width: 80px; border-radius: 5px">Posting</button>
-                                    <button type="submit" class="btn" style="background-color: #1A5319; color: white; height: 40px; width: 80px; border-radius: 5px">Edit</button> 
-                                    <button type="submit" class="btn" style="background-color: #C62E2E; color: white; height: 40px; width: 80px; border-radius: 5px">Hapus</button> 
-                                </td>
-                            </tr>
-                </table>
+    <div class="dashboard-title text-center mb-4">DAFTAR BERITA</div>
+    
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header text-right">
+                        <a href="/berita/formberita" class="btn btn-success">
+                            <i class="bi bi-plus-square"></i> Tambah Berita
+                        </a>
+                    </div>
+
+                    <div class="card-body">
+                        <table id="example" class="table table-striped" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">No</th>
+                                    <th class="text-center">Judul Berita</th>
+                                    <th class="text-center">Isi Berita</th>
+                                    <th class="text-center">Foto</th>
+                                    <th class="text-center">Tanggal Posting</th>
+                                    <th class="text-center">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">1</td>
+                                    <td>Ulang Tahun UKDW</td>
+                                    <td>UKDW merayakan ulang tahun yang ke-xx pada tanggal 31 Oktober</td>
+                                    <td class="text-center">
+                                        <img src="" alt="Foto Berita" style="height: 50px; width: 50px;">
+                                    </td>
+                                    <td class="text-center">31-10-2024</td>
+                                    <td class="text-center">
+                                        <a href="#" class="btn btn-primary btn-sm" style="width: 80px;">Posting</a>
+                                        <a href="#" class="btn btn-success btn-sm" style="width: 80px;">Edit</a> 
+                                        <a href="#" class="btn btn-danger btn-sm" style="width: 80px;">Hapus</a> 
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
 @endsection

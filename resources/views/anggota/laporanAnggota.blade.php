@@ -21,32 +21,15 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <th class="text-center">1</th>
-                                <th class="text-center">Laporan 1</th>
+                                <th class="text-center"></th>
+                                <th class="text-center"></th>
                                 <th class="text-center"></th>
                                 <th class="text-center"></th>
                                 <td class="text-center">
                                     <button type="submit" class="btn" style="background-color:#1A5319; color: white; height: 40px; width: 80px; border-radius: 5px;">Lihat</button>      
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="text-center">2</td>
-                                <td class="text-center">Laporan 2</td>
-                                <th class="text-center"></th>
-                                <th class="text-center"></th>
-                                <td class="text-center">
-                                    <button type="submit" class="btn" style="background-color: #1A5319; color: white; height: 40px; width: 80px; border-radius: 5px;">Lihat</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">3</td>
-                                <td class="text-center">Laporan 3</td>
-                                <th class="text-center"></th>
-                                <th class="text-center"></th>
-                                <td class="text-center">
-                                    <button type="submit" class="btn" style="background-color: #1A5319; color: white; height: 40px; width: 80px; border-radius: 5px;">Lihat</button>
-                                </td>
-                            </tr>
+                        </body>
                     </table>
                 </div>
                 </div>

@@ -12,21 +12,21 @@
         </div>
 
         <div class="text-center">
-            <a href="/" class="nav-link fw-bold">
+            <a href="/datadosen" class="nav-link fw-bold">
                 <img src="{{ asset('asset/Icon folders.png') }}" alt="Kelompok KKN" class="mb-2" style="height: 120px; width: 120px;">
                 <p>DATA DOSEN</p>
             </a>
         </div>
 
         <div class="text-center">
-            <a href="/" class="nav-link fw-bold">
+            <a href="/jenisKKN" class="nav-link fw-bold">
                 <img src="{{ asset('asset/nilai.png') }}" alt="Dokumen Kegiatan" class="mb-2" style="height: 120px; width: 120px;">
                 <p>JENIS KKN</p>
             </a>
         </div>
 
         <div class="text-center">
-            <a href="/kelompokKKN" class="nav-link fw-bold">
+            <a href="/datamahasiswa" class="nav-link fw-bold">
                 <img src="{{ asset('asset/youth.png') }}" alt="Kelompok KKN" class="mb-2" style="height: 120px; width: 120px;">
                 <p>DATA MAHASISWA</p>
             </a>
@@ -40,11 +40,10 @@
         </div>
 
         <div class="text-center">
-            <a href="/nilaiKKN" class="nav-link fw-bold">
+            <a href="/berita" class="nav-link fw-bold">
                 <img src="{{ asset('asset/nilai.png') }}" alt="Nilai" class="mb-2" style="height: 120px; width: 120px;">
                 <p>BERITA</p>
             </a>
         </div>
-
     </div>
 @endsection

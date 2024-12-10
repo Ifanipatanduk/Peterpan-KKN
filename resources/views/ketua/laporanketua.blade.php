@@ -40,11 +40,11 @@
                                 <th class="text-center"> {{ $loop->iteration}} </th>
                                 <th class="text-center"> {{ $dokumen->Judul}} </th>
                                 <th class="text-center"> {{ $dokumen->Deskripsi}} </th>
-                                <td class="text-center"><a type="{{ asset('storage/' . $dokumen->File) }}" target="_blank">{{ $dokumen->nama_asli }}</a></td>
+                                <td class="text-center"><a type="{{ asset('storage/' . $dokumen->File) }}" target="_blank">{{ $dokumen->Nama_asli }}</a></td>
                                 <td class="text-center">
                                     <button type="submit" class="btn btn-primary"><i class="bi bi-eye-fill"></i></button>      
                                     <button type="submit" class="btn btn-secondary"><i class="bi bi-chat-fill"></i></button>   
-                                    <form action="{{ route('DokumenController.deleteLaporan', $dokumen->id) }}" method="POST" style="display: inline;">
+                                    <form action="{{ route('DokumenController.deleteLaporan', $dokumen->id_laporan) }}" method="POST" style="display: inline;">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>

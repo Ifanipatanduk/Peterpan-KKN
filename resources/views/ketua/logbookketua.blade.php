@@ -42,7 +42,7 @@
                                 <td class="text-center">{{ $dokumen->Waktu_selesai }}</td>
                                 <td class="text-center">{{ $dokumen->Deskripsi }}</td>
                                 <td class="text-center">
-                                <form action="{{ route('logbook.delete', $dokumen->id) }}" method="POST" style="display: inline;">
+                                <form action="{{ route('logbook.delete', $dokumen->id_logbook) }}" method="POST" style="display: inline;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">

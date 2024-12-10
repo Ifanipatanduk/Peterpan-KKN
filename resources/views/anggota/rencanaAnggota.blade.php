@@ -18,8 +18,8 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th class="text-center">1</th>
-                                    <th class="text-center">Rencana 1</th>
+                                    <th class="text-center"></th>
+                                    <th class="text-center"></th>
                                     <td class="text-center">
                                         <button type="submit" class="btn" style="background-color:#1A5319; color: white; height: 40px; width: 80px; border-radius: 5px;">Lihat</button>                               
                                     </td>

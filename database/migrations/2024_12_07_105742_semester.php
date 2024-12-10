@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('logbook_kegiatans', function (Blueprint $table) {
-            $table->id();
-            $table->string('Tanggal_kegiatan');
-            $table->string('Waktu_mulai');
-            $table->string('Waktu_selesai');
-            $table->string('Deskripsi');
+        schema::create('semester', function(Blueprint $table){
+            $table->bigIncrements('id_semester');
+            $table->string('Nama', 50);
+            $table->string('Tahun Akademik');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('logbook_kegiatans');
+        Schema::dropIfExists('semester');
     }
 };

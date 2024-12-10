@@ -2,9 +2,9 @@
 @section('title', "Nilai KKN Kelompok")
 @section('artikel')
 
-<div class="dashboard-title">Nilai KKN</div>
-<div class="container mt-5">
-    <div class="row justify-content-center">
+    <div class="dashboard-title">Nilai KKN</div>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">

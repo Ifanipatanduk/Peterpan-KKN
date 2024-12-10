@@ -45,7 +45,6 @@
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="#">
             <img src="https://via.placeholder.com/50" alt="LPPM Logo">

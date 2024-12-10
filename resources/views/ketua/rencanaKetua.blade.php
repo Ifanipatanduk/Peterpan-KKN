@@ -2,15 +2,16 @@
 @section('title', 'Rencana Kelompok')
 @section('artikel')
 
+
 <div class="dashboard-title">RENCANA KEGIATAN</div>
 <main class="container">
     <div class="row">
         <div class="col-12 py-5" style="text-align: right;">
             <div class="card shadow-sm">
                 <div class="card-header bg-light">
-                    <a href="{{ route('DokumenController.formrencana') }}" class="btn" style="background-color: #1A5319; color: white;">
-                        <i class="bi bi-plus-square"></i> Tambah Rencana
-                    </a>
+                <a href="{{ route('DokumenController.formrencana') }}" class="btn" style="background-color: #1A5319; color: white;">
+                    <i class="bi bi-plus-square"></i> Tambah Rencana
+                </a>
                 </div>
                 
                 <div class="card-body">
@@ -38,14 +39,14 @@
                                     <td class="text-center">{{ $loop->iteration }}</td> 
                                     <td class="text-center">{{ $dokumen->Judul }}</td>
                                     <td class="text-center">{{ $dokumen->Deskripsi }}</td>
-                                    <td class="text-center"><a type="{{ asset('storage/' . $dokumen->File) }}" target="_blank">{{ $dokumen->nama_asli }}</a></td>   
+                                    <td class="text-center"><a type="{{ asset('storage/' . $dokumen->File) }}" target="_blank">{{ $dokumen->Nama_asli }}</a></td>   
                                     <td class="text-center">
-                                        <a href="{{ route('DokumenController.show', $dokumen->id) }}" class="btn btn-primary"><i class="bi bi-eye-fill"></i></a>
+                                        <a href="{{ route('DokumenController.show', $dokumen->id_rencana) }}" target="_blank" class="btn btn-primary"><i class="bi bi-eye-fill"></i></a>
                                         <a type="button" class="btn btn-secondary"><i class="bi bi-chat-fill"></i></a>
-                                        <form action="{{ route('DokumenController.deleteDokumen', $dokumen->id) }}" method="POST" style="display: inline;">
+                                        <form action="{{ route('DokumenController.deleteDokumen', $dokumen->id_rencana) }}" method="POST" style="display: inline;">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin menghapus rencana ketua?')"><i class="bi bi-trash-fill"></i></button>
                                         </form>
                                     </td>
                                 </tr>

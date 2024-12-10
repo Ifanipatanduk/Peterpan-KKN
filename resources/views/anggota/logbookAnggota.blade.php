@@ -23,22 +23,8 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="text-center">1</td>
-                                        <td class="text-center">Koordinasi RT</td>
-                                        <td class="date"></td>
-                                        <td class="date"></td>
-                                        <td class="textare"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">2</td>
-                                        <td class="text-center">Koordinasi RT</td>
-                                        <td class="date"></td>
-                                        <td class="date"></td>
-                                        <td class="textare"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">3</td>
-                                        <td class="text-center">Koordinasi RT</td>
+                                        <td class="text-center"></td>
+                                        <td class="text-center"></td>
                                         <td class="date"></td>
                                         <td class="date"></td>
                                         <td class="textare"></td>

@@ -85,7 +85,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/dashboarddosen">
+            <a class="navbar-brand" href="/dashboardAdmin">
                 <img src="{{ asset('asset/lppm-ukdw.png') }}" alt="Logo" width="50" class="d-inline-block align-text-top">
                 Kuliah Kerja Nyata
             </a>
@@ -97,7 +97,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Dashboard</a>
+                        <a class="nav-link" href="/dashboardAdmin">Dashboard</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Beranda</a>
