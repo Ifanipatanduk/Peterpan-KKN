@@ -15,14 +15,14 @@
                 </div>
                 
                 <div class="card-body">
-                @if (session('alert'))
+                <!-- @if (session('alert'))
                     <div class="alert alert-warning alert-danger fade show" role="alert">
                         <strong>{{session('alert')}}</strong>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                @endif
+                @endif -->
                     <table id="example" class="display" style="width:100%">
                         <thead>
                             <tr>
@@ -40,10 +40,11 @@
                                 <th class="text-center"> {{ $loop->iteration}} </th>
                                 <th class="text-center"> {{ $dokumen->Judul}} </th>
                                 <th class="text-center"> {{ $dokumen->Deskripsi}} </th>
-                                <td class="text-center"><a type="{{ asset('storage/' . $dokumen->File) }}" target="_blank">{{ $dokumen->Nama_asli }}</a></td>
+                                <td class="text-center"><a type="{{ asset('storage/' . $dokumen->File) }}" target="_blank">{{ $dokumen->Nama_asli }}</a></td> 
                                 <td class="text-center">
-                                    <button type="submit" class="btn btn-primary"><i class="bi bi-eye-fill"></i></button>      
-                                    <button type="submit" class="btn btn-secondary"><i class="bi bi-chat-fill"></i></button>   
+                                    <a href="{{ route('DokumenController.editLaporan', $dokumen->id_laporan)}}" class="btn btn-success"><i class="bi bi-pencil"></i></a>
+                                    <a href="{{ route('DokumenController.show', $dokumen->id_laporan) }}" target="_blank" class="btn btn-primary"><i class="bi bi-eye-fill"></i></a>   
+                                    <a type="button" class="btn btn-secondary"><i class="bi bi-chat-fill"></i></a>
                                     <form action="{{ route('DokumenController.deleteLaporan', $dokumen->id_laporan) }}" method="POST" style="display: inline;">
                                         @csrf
                                         @method('DELETE')

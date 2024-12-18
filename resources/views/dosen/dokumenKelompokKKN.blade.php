@@ -2,5 +2,4 @@
 @section('title', "Dokumen Kegiatan")
 @section('artikel')
 @include('layouts/dokumenDosen')
-
 @endsection

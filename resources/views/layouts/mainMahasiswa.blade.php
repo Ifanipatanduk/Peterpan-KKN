@@ -85,8 +85,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Beranda</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Akun</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Akun
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{{ route('DokumenController.ubahPassword')}}">Ubah Password</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="">Keluar</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>

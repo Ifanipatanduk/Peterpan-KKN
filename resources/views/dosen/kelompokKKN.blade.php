@@ -1,47 +1,83 @@
-@extends('layouts/mainDosen')
-@section('title', "Kelompok KKN")
-@section('artikel')
+    @extends('layouts/mainAdmin')
+    @section('title', "Data KKN")
+    @section('artikel')
+        <style>
+            #pillNav2 {
+                border: 2px solid #1A5319;
+                border-radius: 0.375rem;
+            }
 
-    <style>
-        .dashboard-title 
-        {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #1A5319;
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-    </style>
+            #pillNav2 {
+                --bs-nav-link-color: var(--bs-white);
+                --bs-nav-pills-link-active-color: var(--bs-white);
+                --bs-nav-pills-link-active-bg: #1A5319;
+            }
 
-    <div class="dashboard-title">DAFTAR KELOMPOKK BIMBINGAN KKN</div>
-        <main class="container border">
+            .dashboard-title {
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: #1A5319;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+
+            .text-center {
+                text-align: center;
+            }
+        </style>
+
+        <div class="dashboard-title"><b>DATA KKN REGULER</b></div>  
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-12 py-5">
-                    <table id="example" class="display" style="width:100%">
-                        <thead>
-                        <tr>
-                            <th class="text-center">No</th>
-                            <th class="text-center">Nama Kelompok</th>
-                            <th class="text-center">Nama Ketua Kelompok</th>
-                            <th class="text-center">Jenis KKN</th>
-                            <th class="text-center">Lokasi KKN</th>
-                            <th class="text-center">Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="text-center">1</td>
-                                <td class="text-center">Kleompok 1</td>
-                                <td class="text-center">XX</td>
-                                <td class="text-center">KKN Reguler</td>
-                                <td class="text-center">Gunung Kidul</td>
-                                <td class="text-center">
-                                    <button type="submit" class="btn" style="background-color:#1A5319; color: white; height: 40px; width: 80px; border-radius: 5px;">Lihat</button>                      
-                                </td>
-                            </tr>
-                    </table>
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <table id="example" class="display" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">No</th>
+                                    <th class="text-center">Nama Kelompok</th>
+                                    <th class="text-center">Nama Dosen</th>
+                                    <th class="text-center">Nama Ketua Kelompok</th>
+                                    <th class="text-center">Jenis KKN</th>
+                                    <th class="text-center">Wilayah KKN</th>
+                                    <th class="text-center">Provinsi</th>
+                                    <th class="text-center">Kabupaten</th>
+                                    <th class="text-center">Kecamatan</th>
+                                    <th class="text-center">Kelurahan/Desa</th>
+                                    <th class="text-center">Daftar Anggota Kelompok</th>
+                                    <th class="text-center">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($dokumens as $dokumen)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $dokumen->Nama }}</td>
+                                        <td>{{ $dokumen->Jenis }}</td>
+                                        <td>{{ $dokumen->Nama_dosen }}</td>
+                                        <td>{{ $dokumen->Nama_mahasiswa }}</td>
+                                        <td>{{ $dokumen->Wilayah }}</td>
+                                        <td>{{ $dokumen->Provinsi }}</td>
+                                        <td>{{ $dokumen->Kabupaten }}</td>
+                                        <td>{{ $dokumen->Kecamatan }}</td>
+                                        <td>{{ $dokumen->Kelurahan }}</td>
+                                        <td class="text-center">
+                                            <button type="button" class="btn"><i class="bi bi-eye-fill"></i></button>
+                                            <button type="button" class="btn"><i class="bi bi-person-plus-fill"></i></button>
+                                        </td>
+                                        <td class="text-center">
+                                            <button type="button" class="btn"><i class="bi bi-pencil-square"></i></button>
+                                            <button type="button" class="btn"><i class="bi bi-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-        </main>
-        
+            </div>
+        </div>
 
-@endsection
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    @endsection
+

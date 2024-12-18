@@ -16,4 +16,9 @@ class Mahasiswa extends Model
     {
         return $this->belongsTo(kelompok_kkn::class, 'id_kelompok');
     }
+
+    public function users()
+    {
+        return $this->belongsT0(Users::class, 'user_id');
+    }
 }

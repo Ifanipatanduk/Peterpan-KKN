@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('anggota_kelompok', function(Blueprint $table){
             $table->bigIncrements('id_anggota');
-            $table->unsignedBigInteger('id_kelompok');
-            $table->unsignedBigInteger('nim');
+            $table->unsignedBigInteger('id_kelompok')->nullable();
+            $table->unsignedBigInteger('nim')->nullable();
+            $table->unsignedBigInteger('Jabatan');
+            $table->timestamps();
 
             $table->foreign('id_kelompok')->references('id_kelompok')->on('kelompok_kkn')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('nim')->references('nim')->on('ketua')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_ketua')->references('nim')->on('id_ketua')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

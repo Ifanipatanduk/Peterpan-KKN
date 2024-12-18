@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('nilai_kkn', function(Blueprint $table){
             $table->bigIncrements('id_nilai');
-            $table->unsignedBigInteger('id_pendamping');
-            $table->unsignedBigInteger('nim');
+            $table->unsignedBigInteger('id_pendamping')->nullable();
+            $table->unsignedBigInteger('nim')->nullable();
             $table->integer('Nilai');
+            $table->timestamps();
 
             $table->foreign('id_pendamping')->references('id_pendamping')->on('dosen_pendamping')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('nim')->references('nim')->on('mahasiswa')->onDelete('cascade')->onUpdate('cascade');

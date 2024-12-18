@@ -24,7 +24,7 @@ return new class extends Migration
 
             $table->foreign('id_pendamping')->references('id_pendamping')->on('dosen_pendamping')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('id_admin')->references('id_admin')->on('admin')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('id_kelompok')->references('id_kelompok')->on('kelompok_kkn')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_kelompok')->references('id_kelompok')->on('kelompok_kkn')->onDelete('set null')->onUpdate('cascade');
         });
     }
 

@@ -5,7 +5,7 @@
 <div class="dashboard-title"><b>DASHBOARD ADMIN </b></div>
     <div class="icon-container">
         <div class="text-center">
-            <a href="/" class="nav-link fw-bold">
+            <a href="/semesterAktif" class="nav-link fw-bold">
                 <img src="{{ asset('asset/Icon Folder.png') }}" alt="Nilai" class="mb-2" style="height: 120px; width: 120px;">
                 <p>SEMESTER AKTIF</p>
             </a>
@@ -33,7 +33,7 @@
         </div>
 
         <div class="text-center">
-            <a href="/dokumenKelompokKKN" class="nav-link fw-bold">
+            <a href="/dokumenKelompokAdmin" class="nav-link fw-bold">
                 <img src="{{ asset('asset/chart.png') }}" alt="Dokumen Kegiatan" class="mb-2" style="height: 120px; width: 120px;">
                 <p>DOKUMEN KEGIATAN</p>
             </a>

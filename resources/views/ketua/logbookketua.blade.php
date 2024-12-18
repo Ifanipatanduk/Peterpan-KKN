@@ -42,6 +42,7 @@
                                 <td class="text-center">{{ $dokumen->Waktu_selesai }}</td>
                                 <td class="text-center">{{ $dokumen->Deskripsi }}</td>
                                 <td class="text-center">
+                                <a href="{{ route('DokumenController.editLogbook', $dokumen->id_logbook)}}" class="btn btn-success"><i class="bi bi-pencil"></i></a>
                                 <form action="{{ route('logbook.delete', $dokumen->id_logbook) }}" method="POST" style="display: inline;">
                                     @csrf
                                     @method('DELETE')

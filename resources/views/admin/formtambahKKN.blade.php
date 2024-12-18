@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Tambah Jenis KKN</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-
-</head>
+@extends('layouts/mainAdmin')
+@section('title', 'Form Tambah Jenis KKN')
+@section('artikel')
 <body>
 <div class="container mt-5">
     <div class="row justify-content-center">
@@ -22,6 +16,16 @@
                             <label>Nama Jenis KKN</label>
                             <input type="text" name="jenis" class="form-control" required>
                         </div>
+
+                        <div class="form-grup mb-3">
+                        <label for="semester" class="form-label" style="color:#1A5139">Semester</label>
+                        <select class="form-select" id="semester" name="semester">
+                            <option selected>Semester</option>
+                            @foreach ($semesterList as $semester)
+                                <option value="{{ $semester->Nama }}">{{ $semester->Nama }}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
                         <div class="form-group mb-3">
                             <label>Deskripsi KKN</label>
@@ -76,4 +80,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
-</html>
+@endsection

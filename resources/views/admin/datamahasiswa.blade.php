@@ -5,7 +5,7 @@
 <div class="dashboard-title text-center my-4">
     <b>DATA MAHASISWA</b>
 </div>
-<main class="container">
+<main class="container-fluid">
     <div class="row">
         <div class="col-12 py-5 text-end">
             <div class="card shadow-sm">
@@ -41,6 +41,7 @@
                                 <td class="text-center"> {{$dokumen->Prodi}} </td>
                                 <td class="text-center"> {{$dokumen->Fakultas}} </td>
                                 <td class="text-center">
+                                    <a href="{{ route('DokumenController.editMahasiswa', $dokumen->nim)}}" class="btn btn-success"><i class="bi bi-pencil"></i></a>
                                     <form action="{{ route('DokumenController.deletemahasiswa', $dokumen->nim) }}" method="POST" style="display: inline;">
                                         @csrf
                                         @method('DELETE')

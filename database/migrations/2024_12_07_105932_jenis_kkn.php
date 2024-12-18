@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('jenis_kkn', function(Blueprint $table){
             $table->bigIncrements('id_kkn');
+            $table->unsignedBigInteger('id_admin')->nullable();
             $table->unsignedBigInteger('id_semester')->nullable();
             $table->string('Jenis', 50);
             $table->string('Deskripsi', 200);
@@ -25,6 +26,7 @@ return new class extends Migration
             $table->date('Tanggal_selesai');
             $table->timestamps();
 
+            $table->foreign('id_admin')->references('id_admin')->on('admin')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('id_semester')->references('id_semester')->on('semester')->onDelete('cascade')->onUpdate('cascade');
         });
     }

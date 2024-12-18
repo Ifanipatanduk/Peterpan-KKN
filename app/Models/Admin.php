@@ -12,8 +12,8 @@ class Admin extends Model
     protected $primaryKey ='id_admin';
     public $timestamps = true;
 
-    public function hakAkses()
+    public function users()
     {
-        return $this->belongsT0(hakAkses::class, 'user_id', 'id');
+        return $this->belongsT0(Users::class, 'user_id', 'user_id');
     }
 }

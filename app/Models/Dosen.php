@@ -12,8 +12,8 @@ class Dosen extends Model
     protected $primaryKey = 'id_dosen';
     public $timestamps = true;
 
-    public function hakAkses()
+    public function users()
     {
-        return $this->belongsTo(HakAkses::class, 'user_id', 'user_id')->withDefault();
+        return $this->belongsTo(Users::class, 'user_id', 'user_id')->withDefault();
     }    
 }

@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('dosen_pendamping', function (Blueprint $table) {
             $table->bigIncrements('id_pendamping');
-            $table->unsignedBigInteger('id_kkn');
-            $table->unsignedBigInteger('id_dosen');
-            $table->unsignedBigInteger('id_kelompok');
+            $table->unsignedBigInteger('id_kkn')->nullable();
+            $table->unsignedBigInteger('id_dosen')->nullable();
+            $table->unsignedBigInteger('id_kelompok')->nullable();
+            $table->timestamps();
 
-            // Foreign key constraints
+
             $table->foreign('id_kkn')->references('id_kkn')->on('jenis_kkn')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('id_dosen')->references('id_dosen')->on('dosen')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('id_kelompok')->references('id_kelompok')->on('kelompok_kkn')->onDelete('cascade')->onUpdate('cascade');

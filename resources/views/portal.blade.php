@@ -127,7 +127,6 @@
         width: 8500 px;
         height: 768px;  
         }
-
         body {
             font-family: Arial, Geologica;
         }

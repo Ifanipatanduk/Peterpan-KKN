@@ -1,4 +1,4 @@
-@extends('layouts/mainDosen')
+@extends('layouts/mainAdmin')
 @section('title', "Data Dosen")
 @section('artikel')
 
@@ -14,7 +14,7 @@
     </style>
 
     <div class="dashboard-title">DATA DOSEN</div>
-        <main class="container">
+        <main class="container-fluid">
             <div class="row">
                 <div class="col-12 py-5" style="text-align: right;">
                         <div class="card shadow-sm">
@@ -56,6 +56,7 @@
                                     <td class="text-center"> {{ $dokumen->Jenis_kelamin}}</td>
                                     <td class="text-center"> {{ $dokumen->Fakultas}}</td>
                                     <td class="text-center"> 
+                                    <a href="{{ route('DokumenController.editDosen', $dokumen->id_dosen)}}" class="btn btn-success"><i class="bi bi-pencil"></i></a>
                                     <form action="{{ route('DokumenController.deletedatadosen', $dokumen->id_dosen) }}" method="POST" style="display: inline;">
                                         @csrf
                                         @method('DELETE')

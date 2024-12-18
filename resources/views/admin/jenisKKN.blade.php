@@ -2,8 +2,9 @@
 @section('title', "Jenis KKN")
 @section('artikel')
 
+
     <div class="dashboard-title"><b>JENIS KULIAH KERJA NYATA (KKN)</b></div>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-12" style="text-align: right;">
                 <div class="card shadow-sm">
@@ -26,12 +27,13 @@
                             <tr>
                                 <th class="text-center">No</th>
                                 <th class="text-center">Jenis KKN</th>
+                                <th class="text-center">Semester</th>
                                 <th class="text-center">Deskripsi</th>
-                                <th class="text-center">Wilayah KKN</th>
+                                <th class="text-center">Wilayah</th>
                                 <th class="text-center">Provinsi</th>
                                 <th class="text-center">Kabupaten</th>
                                 <th class="text-center">Kecamatan</th>
-                                <th class="text-center">Kelurahan/Desa</th>
+                                <th class="text-center">Kelurahan</th>
                                 <th class="text-center">Tanggal Mulai</th>
                                 <th class="text-center">Tanggal Selesai</th>
                                 <th class="text-center">Action</th>
@@ -42,6 +44,7 @@
                                 <tr>
                                     <td class="text-center">{{ $loop->iteration}}</td> 
                                     <td class="text-center">{{ $dokumen->Jenis}}</td>
+                                    <td class="text-center">{{ $dokumen->Semester}}</td>
                                     <td class="text-center">{{ $dokumen->Deskripsi}}</td>
                                     <td class="text-center">{{ $dokumen->Wilayah}}</td>
                                     <td class="text-center">{{ $dokumen->Provinsi}}</td>   
@@ -51,7 +54,8 @@
                                     <td class="text-center">{{ $dokumen->Tanggal_mulai}}</td>   
                                     <td class="text-center">{{ $dokumen->Tanggal_selesai}}</td>  
                                     <td class="text-center">
-                                        <a href="{{ route('DokumenController.formtambahkelompok', $dokumen->id_kkn) }}" class="btn" style="background-color: #1A5319; color: white;"><i class="bi bi-eye-fill"></i></a>
+                                        <a href="{{ route('DokumenController.daftarKelompokKKN', $dokumen->id_kkn) }}" class="btn btn-primary"><i class="bi bi-eye-fill"></i></a>
+                                        <a href="{{ route('DokumenController.formtambahkelompok', $dokumen->id_kkn) }}" class="btn btn-success"> <i class="bi bi-plus-square"></i></a>
                                         <form action="{{ route('DokumenController.deleteKKN', $dokumen->id_kkn) }}" method="POST" style="display: inline;">
                                             @csrf
                                             @method('DELETE')

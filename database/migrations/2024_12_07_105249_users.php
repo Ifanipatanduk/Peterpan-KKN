@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('hak_akses', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('user_id');  
-            $table->string('Nama', 50);
-            $table->string('Email', 50);
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('role')->enum('admin', 'dosen', 'ketua', 'mahasiswa');
+            $table->timestamps();
         });
     }
 

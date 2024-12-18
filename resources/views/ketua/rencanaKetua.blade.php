@@ -41,6 +41,7 @@
                                     <td class="text-center">{{ $dokumen->Deskripsi }}</td>
                                     <td class="text-center"><a type="{{ asset('storage/' . $dokumen->File) }}" target="_blank">{{ $dokumen->Nama_asli }}</a></td>   
                                     <td class="text-center">
+                                        <a href="{{ route('DokumenController.editRencana', $dokumen->id_rencana)}}" class="btn btn-success"><i class="bi bi-pencil"></i></a>
                                         <a href="{{ route('DokumenController.show', $dokumen->id_rencana) }}" target="_blank" class="btn btn-primary"><i class="bi bi-eye-fill"></i></a>
                                         <a type="button" class="btn btn-secondary"><i class="bi bi-chat-fill"></i></a>
                                         <form action="{{ route('DokumenController.deleteDokumen', $dokumen->id_rencana) }}" method="POST" style="display: inline;">

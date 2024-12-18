@@ -14,7 +14,6 @@ return new class extends Migration
         schema::create('semester', function(Blueprint $table){
             $table->bigIncrements('id_semester');
             $table->string('Nama', 50);
-            $table->string('Tahun Akademik');
             $table->timestamps();
         });
     }

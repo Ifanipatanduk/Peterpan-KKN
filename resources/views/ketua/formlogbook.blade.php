@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Logbook</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-
-</head>
+@extends('layouts/mainKetua')
+@section('title', 'Form Tambah Logbook')
+@section('artikel')
 <body>
 <div class="container mt-5">
     <div class="row justify-content-center">
@@ -15,12 +9,12 @@
                 <div class="card-header"><b>Tambahkan Logbook Kegiatan</b></div>
  
                 <div class="card-body">
-                    <form action="{{ route('DokumenController.simpanlogbook') }}" method="POST">
+                    <form action="{{ route('DokumenController.simpanLogbook') }}" method="POST">
                         @csrf
- 
+
                         <div class="form-group mb-3">
-                            <label>Tanggal Kegiatan</label>
-                            <input type="date" name="tanggal" class="form-control" required>
+                        <label>Tanggal Kegiatan</label>
+                        <input type="date" name="tanggal" class="form-control" required>
                         </div>
 
                         <div class="form-group mb-3">
@@ -50,4 +44,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
-</html>
+@endsection

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('mahasiswa', function(Blueprint $table){
             $table->bigIncrements('nim');  
             $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('id_kelompok')->nullable();
             $table->string('Nama', 30);  
             $table->string('Jenis_kelamin', 10);
             $table->string('Kontak', 15);  
@@ -23,6 +24,8 @@ return new class extends Migration
             $table->timestamps();  
 
             $table->foreign('user_id')->references('user_id')->on('hak_akses')->onDelete('cascade')->onUpdate('cascade'); 
+            $table->foreign('id_kelompok')->references('id_kelompok')->on('kelompok_kkn')->onDelete('cascade')->onUpdate('cascade'); 
+
         });
     }
 

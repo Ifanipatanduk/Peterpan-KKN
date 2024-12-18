@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->nullable();  
             $table->string('Nama', 50);
             $table->string('Email', 30);
+            $table->timestamps();
 
             $table->foreign('user_id')->references('user_id')->on('hak_akses')->onDelete('cascade')->onUpdate('cascade'); 
         });

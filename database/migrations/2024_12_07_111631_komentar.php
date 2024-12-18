@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('Komentar', 200);
             $table->date('Tanggal');
             $table->timestamps();
-
             $table->foreign('id_postingan')->references('id_postingan')->on('postingan')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('nim')->references('nim')->on('mahasiswa')->onDelete('cascade')->onUpdate('cascade');
         });
