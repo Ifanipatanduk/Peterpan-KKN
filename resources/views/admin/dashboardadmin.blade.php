@@ -45,5 +45,12 @@
                 <p>BERITA</p>
             </a>
         </div>
+
+        <div class="text-center">
+            <a href="/nilaiMahasiswa" class="nav-link fw-bold">
+                <img src="{{ asset('asset/nilai.png') }}" alt="Nilai" class="mb-2" style="height: 120px; width: 120px;">
+                <p>Nilai Mahasiswa</p>
+            </a>
+        </div>
     </div>
 @endsection

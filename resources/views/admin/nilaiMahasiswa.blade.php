@@ -1,4 +1,4 @@
-@extends('layouts/mainDosen')
+@extends('layouts/mainAdmin')
 @section('title', "Nilai KKN Kelompok")
 @section('artikel')
 

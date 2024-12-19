@@ -19,6 +19,11 @@ class AnggotaKelompok extends Model
 
     public function ketua()
     {
-        return $this->hasOne(Ketua::class);
+        return $this->hasOne(Ketua::class, 'id_anggota', 'id_anggota');
+    }
+
+    public function nilaiKKN()
+    {
+        return $this->hasOne(NilaiKKN::class, 'id_nilai', 'id_nilai');
     }
 }

@@ -31,7 +31,7 @@
 </head>
 <body>
     <h1>Login</h1>
-    <form action="{{ route('login') }}" method="POST">
+    <form action="" method="POST">
         @csrf
         <div>
             <label for="email">Email:</label>
@@ -54,5 +54,3 @@
         </div>
     @endif
 </body>
-</html>
-

@@ -29,8 +29,9 @@
 
                     <div class="form-group mb-3">
                         <label>Deskripsi</label>
-                        <input type="text" name="deskripsi" class="form-control" value="{{ $logbook->deskripsi }}" required>
+                        <input type="text" name="deskripsi" class="form-control" value="{{ $logbook->Deskripsi }}" required>
                     </div>
+
 
                     <div class="form-group">
                         <button type="submit" class="btn btn-success">Simpan</button>

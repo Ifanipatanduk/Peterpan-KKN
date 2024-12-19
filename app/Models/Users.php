@@ -13,11 +13,8 @@ class Users extends Authenticatable
     protected $table = 'users'; // Nama tabel di database
     protected $primaryKey = 'user_id'; // Kolom primary key
     public $timestamps = true; // Menggunakan kolom created_at & updated_at
-
-    // Kolom yang bisa diisi
     protected $fillable = ['email', 'password', 'role'];
 
-    // Kolom yang disembunyikan saat diambil
     protected $hidden = ['password'];
 
     public function mahasiswa()

@@ -36,7 +36,30 @@ class DokumenController extends Controller
         $laporans = LaporanKegiatan::all();
         return view('ketua.dokumenKetuaKelompok', compact('rencanas', 'logbooks', 'laporans'));
     }
+
+    public function dokumenAnggota()
+    {
+        $rencanas = RencanaKegiatan::all();
+        $logbooks = LogbookKegiatan::all();
+        $laporans = LaporanKegiatan::all();
+        return view('anggota.dokumenAnggota', compact('rencanas', 'logbooks', 'laporans'));
+    }
     
+    public function dokumenDosen()
+    {
+        $rencanas = RencanaKegiatan::all();
+        $logbooks = LogbookKegiatan::all();
+        $laporans = LaporanKegiatan::all();
+        return view('dosen.dokumenDosen', compact('rencanas', 'logbooks', 'laporans'));
+    }
+    
+    public function dokumenAdmin()
+    {
+        $rencanas = RencanaKegiatan::all();
+        $logbooks = LogbookKegiatan::all();
+        $laporans = LaporanKegiatan::all();
+        return view('admin.dokumenAdmin', compact('rencanas', 'logbooks', 'laporans'));
+    }
     
     //MENU RENCANA KETUA KELOMPOK
     public function rencanaKetua()
@@ -150,7 +173,7 @@ class DokumenController extends Controller
     {
         return view('ketua.formlaporan');
     }
-
+    
     public function simpanLaporan(Request $request)
     {
         $validasi = $request->validate([
@@ -158,17 +181,20 @@ class DokumenController extends Controller
             'deskripsi' => 'required',
             'file' => 'required|file',
         ]);
+
         $uploadedFile = $request->file('file');
-        $filePath = $uploadedFile->storeAs('files', $uploadedFile->getClientOriginalName()); 
+        $filePath = $uploadedFile->storeAs('files', $uploadedFile->getClientOriginalName(), 'public');
 
         LaporanKegiatan::create([
             'Judul' => $validasi['judul'],
             'Deskripsi' => $validasi['deskripsi'],
-            'File' => $filePath,
-            'Nama_asli' => $uploadedFile->getClientOriginalName(),
+            'File' => $filePath, 
+            'Nama_asli' => $uploadedFile->getClientOriginalName(),            
         ]);
-        return redirect()->route('DokumenController.dokumenKetuaKelompok')->with('success', 'Rencana Kegiatan Berhasil Disimpan!');
+
+        return redirect()->route('DokumenController.dokumenKetuaKelompok')->with('success', 'Laporan Kegiatan Berhasil Disimpan!');
     }
+
 
     public function editLaporan($id_laporan)
     {
@@ -265,36 +291,52 @@ class DokumenController extends Controller
 
     public function deleteLogbook($id_logbook)
     {
-        $logbooks = RencanaKegiatan::find($id_logbook);
-        if (!$logbooks) {
-            return redirect()->back()->with('alert', 'Rencana Kegiatan tidak ditemukan!');
+        $logbook = LogbookKegiatan::find($id_logbook);
+        if (!$logbook) {
+            return redirect()->back()->with('alert', 'Logbook tidak ditemukan!');
         }
-        $logbooks->delete();
-        return redirect()->route('DokumenController.dokumenKetuaKelompok')->with('alert', 'Rencana Kegiatan Berhasil Dihapus!');
+        $logbook->delete();
+        return redirect()->route('DokumenController.dokumenKetuaKelompok')->with('alert', 'Logbook berhasil dihapus!');
+    }
+    
+
+    //HALAMAN DOSEN
+    public function dataAnggotaKelompok()
+    {
+        $anggotaKelompok = AnggotaKelompok::with('mahasiswa')->get();
+        return view('dosen.dataAnggotaKelompok', compact('anggotaKelompok'));
     }
     
     //Dosen - NilaiKKN 
     public function nilaiKKN()
     {
-        $dokumens = NilaiKKN::all();
-        return view('dosen.nilaiKKN', compact('dokumens'));
+        $anggotaKelompok = AnggotaKelompok::with(['mahasiswa', 'nilaiKKN'])->get();
+        return view('dosen.nilaiKKN', compact('anggotaKelompok'));
     }
 
-    public function formNilai()
+    public function formNilai($nim)
     {
-        return view('dosen.formNilai');
+        $nilaiKKN = NilaiKKN::all();
+        $anggota = AnggotaKelompok::with('mahasiswa')->where('nim', $nim)->firstOrFail();
+        return view('dosen.formNilai', compact( 'nilaiKKN', 'anggota'));
     }
 
     public function simpanNilai(Request $request)
     {
-        $validasi = $request->validate([
+        $validatedData = $request->validate([
+            'nim' => 'required|exists:anggota_kelompok,nim',
             'nilai' => 'required', 
         ]);
-        NilaiKKN::create([
-            'Nilai' => $validasi['nilai'],    
+    
+        $anggota = AnggotaKelompok::where('nim', $validatedData['nim'])->firstOrFail();
+    
+        $nilaiKKN = NilaiKKN::create([
+            'Nilai' => $validatedData['nilai'],
         ]);
-        return redirect()->route('DokumenController.nilaiKKN')->with('success', 'Nilai KKN Berhasil Disimpan!');
+    
+        return redirect()->route('DokumenController.nilaiKKN')->with('success', 'Nilai KKN berhasil disimpan.');
     }
+    
 
     //ADMIN 
     //MENU RENCANA KETUA KELOMPOK
@@ -318,7 +360,7 @@ class DokumenController extends Controller
         semesterAktif::create([
             'Nama' => $validasi['nama'],
         ]);
-        return redirect()->route('DokumenController.semesterAktif')->with('alert', 'Data Semester Berhasil Disimpan!');
+        return redirect()->route('DokumenController.semesterAktif')->with('success', 'Data Semester Berhasil Disimpan!');
     }
 
     public function deleteSemester($id_semester)
@@ -328,7 +370,7 @@ class DokumenController extends Controller
             return redirect()->back()->with('alert', "Data Semester tidak ditemukan!");
         }
         $semesters->delete();
-        return redirect()->route('DokumenController.semesterAktif')->with('success', 'Data Semester Berhasil Dihapus!');
+        return redirect()->route('DokumenController.semesterAktif')->with('alert', 'Data Semester Berhasil Dihapus!');
 
     }
 
@@ -356,7 +398,7 @@ class DokumenController extends Controller
         $semester->Nama = $request->nama;
         $semester->save();
     
-        return redirect()->route('DokumenController.semesterAktif')->with('alert', 'Data Semester Berhasil Diupdate!');
+        return redirect()->route('DokumenController.semesterAktif')->with('success', 'Data Semester Berhasil Diupdate!');
     }
     
 
@@ -534,7 +576,6 @@ class DokumenController extends Controller
             $validasi = $request->validate([
                 'jenis' => 'required',
                 'semester' => 'required',
-                'ketua' => 'required',
                 'deskripsi' => 'required',
                 'wilayah' => 'required',
                 'provinsi' => 'required',
@@ -548,7 +589,6 @@ class DokumenController extends Controller
             JenisKKN::create([
                 'Jenis' => $validasi['jenis'],
                 'Semester' => $validasi['semester'],
-                'Ketua' => $validasi['ketua'],
                 'Deskripsi' => $validasi['deskripsi'],
                 'Wilayah' => $validasi['wilayah'],
                 'Provinsi' => $validasi['provinsi'],
@@ -691,14 +731,14 @@ class DokumenController extends Controller
     
     public function simpanAnggotaKelompok(Request $request)
     {
-        // Validasi input dari form
+
         $validatedData = $request->validate([
             'id_kelompok' => 'required|exists:kelompok_kkn,id_kelompok',
             'nim' => 'required|exists:mahasiswa,nim',
-            'jabatan' => 'nullable|in:Ketua Kelompok,Anggota Kelompok', // Validasi jabatan
+            'jabatan' => 'nullable|in:Ketua Kelompok,Anggota Kelompok', 
         ]);
     
-        // Cek apakah mahasiswa sudah ada dalam kelompok
+
         $dataMahasiswa = AnggotaKelompok::where('id_kelompok', $validatedData['id_kelompok'])
                                         ->where('nim', $validatedData['nim'])
                                         ->exists();
@@ -707,21 +747,21 @@ class DokumenController extends Controller
             return redirect()->back()->with('error', 'Mahasiswa sudah tergabung dalam kelompok ini.');
         }
     
-        // Menambahkan anggota ke dalam kelompok dengan jabatan jika ada
+
         $anggotaKelompok = AnggotaKelompok::create([
             'id_kelompok' => $validatedData['id_kelompok'],
             'nim' => $validatedData['nim'],
-            'jabatan' => $request->input('jabatan') ?: 'Anggota Kelompok',  // Default ke 'Anggota Kelompok' jika tidak ada jabatan
+            'jabatan' => $request->input('jabatan') ?: 'Anggota Kelompok',  
         ]);
     
-        // Jika jabatan adalah Ketua Kelompok, simpan data ketua di tabel ketua
+
         if ($request->input('jabatan') === 'Ketua Kelompok') {
-            // Hapus ketua lama jika ada
+
             Ketua::where('id_kelompok', $validatedData['id_kelompok'])->delete();
     
-            // Menyimpan ketua baru
+ 
             $ketua = new Ketua();
-            $ketua->anggota_kelompok_id = $anggotaKelompok->id;  // Menyimpan relasi ketua ke anggota kelompok
+            $ketua->anggota_kelompok_id = $anggotaKelompok->id;  
             $ketua->save();
         }
     
@@ -757,16 +797,16 @@ class DokumenController extends Controller
             'jabatan' => 'nullable|exists:anggota_kelompok,id_anggota',
         ]);
     
-       // Reset semua jabatan menjadi 'Anggota Kelompok'
+
         AnggotaKelompok::where('id_kelompok', $id_kelompok)->update(['jabatan' => 'Anggota Kelompok']);
 
-        // Jika ada radio button yang dipilih, atur sebagai 'Ketua Kelompok'
+
         if ($request->has('jabatan')) {
             AnggotaKelompok::where('id_anggota', $validatedData['jabatan'])
                 ->update(['jabatan' => 'Ketua Kelompok']);
         }
             
-        // Redirect dengan pesan sukses
+
         return redirect()->route('DokumenController.showDataAnggotaKelompok', $id_kelompok)
             ->with('success', 'Struktur organisasi berhasil diperbarui!');
     }
@@ -801,5 +841,42 @@ class DokumenController extends Controller
     {
         return view ('postingan.komentar');
     }
+
+    public function rencanaAnggota()
+    {
+        $rencanas = RencanaKegiatan::all(); 
+        return view('anggota.rencanaAnggota', compact('rencanas'));  
+    }
+
+    public function logbookAnggota()
+    {
+        $logbooks = LogbookKegiatan::all(); 
+        return view('anggota.logbookAnggota', compact('logbooks'));  
+    }
+
+    public function laporanAnggota()
+    {
+        $laporans = LaporanKegiatan::all(); 
+        return view('anggota.laporanAnggota', compact('laporans'));  
+    }
+
+        //Dosen - NilaiKKN 
+        public function nilaiMahasiswa()
+        {
+            $anggotaKelompok = AnggotaKelompok::with(['mahasiswa', 'nilaiKKN'])->get();
+            return view('admin.nilaiMahasiswa', compact('anggotaKelompok'));
+        }
+    
+        public function niliaTambah($nim)
+        {
+            $anggota = AnggotaKelompok::with('mahasiswa')->where('nim', $nim)->firstOrFail();
+            return view('admin.formNilai', compact('anggota'));
+        }
+
+        public function dataNilai()
+        {
+            $anggotaKelompok = AnggotaKelompok::with('mahasiswa')->get();
+            return view('admin.nilaiMahasiswa', compact('anggotaKelompok'));
+        }
 }
 

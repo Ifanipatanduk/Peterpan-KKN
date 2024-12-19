@@ -2,41 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DokumenController;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KomentarDokumenController;
 
 Route::get('/', function () {
     return view('portal');
 });
-
-
-// Route untuk halaman login
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login'])->name('login.post');
-
-// Route untuk logout
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/admin/dashboardAdmin', function () {
-        return view('admin.dashboardAdmin');
-    })->name('admin.dashboardadmin');
-
-    Route::get('/dosen/dashboardDosen', function () {
-        return view('dosen.dashboardDosen');
-    })->name('dosen.dashboardDosen');
-
-    Route::get('/ketua/dashboardKetua', function () {
-        return 'Halaman Ketua';
-    })->name('ketua.dashboardKetua');
-
-    // Pastikan route ini sudah ada
-    Route::get('/anggota/dashboardAnggota', function () {
-        return view('anggota.dashboardAnggota');   // Ganti dengan tampilan yang sesuai
-    })->name('anggota.dashboardAnggota');
-});
-
-
 
 Route::get('/comments', function () { return view('comments/index');});
 
@@ -44,7 +14,7 @@ Route::get('/comments', function () { return view('comments/index');});
 Route::get('/ubahPassword', [DokumenController::class, 'ubahPassword'])->name('DokumenController.ubahPassword');
 
 //ADMIN
-// Route::get('/dashboardAdmin',[DokumenController::class, 'dashboardAdmin'])->name('DokumenController.dashboardAdmin');
+Route::get('/dashboardAdmin',[DokumenController::class, 'dashboardAdmin'])->name('DokumenController.dashboardAdmin');
 Route::get('/semesterAktif', [DokumenController::class, 'semesterAktif'])->name('DokumenController.semesterAktif');
 Route::get('/semesterAktif/formSemester', [DokumenController::class, 'formSemester'])->name('DokumenController.formSemester');
 Route::post('/semesterAktif/simpanSemester', [DokumenController::class, 'simpanSemester'])->name('DokumenController.simpanSemester');
@@ -83,20 +53,20 @@ Route::get('/dokumenKelompokAdmin', function () { return view('admin/dokumenKelo
 Route::get('/kelompok/{id_kelompok}/anggota', [DokumenController::class, 'daftarAnggotaKelompok'])->name('DokumenController.daftarAnggotaKelompok');
 Route::get('/berita', function () {return view('admin/berita');});
 Route::get('berita/formberita', function () {return view('admin/formberita');});
+Route::get('/nilaiMahasiswa', [DokumenController::class, 'nilaiMahasiswa'])->name('DokumenController.nilaiMahasiswa');
 
 
 //DOSEN
 Route::get('/dashboarddosen', function () { return view('dosen/dashboardDosen');});
-Route::get('/kelompokKKN', function () {return view('dosen/kelompokKKN');});
+Route::get('/dosen/dataAnggota', [DokumenController::class, 'dataAnggotaKelompok'])->name('dosen.dataAnggotaKelompok');
+Route::get('/nilaiKKN', [DokumenController::class, 'nilaiKKN'])->name('DokumenController.nilaiKKN');
+Route::get('/nilaiKKN/formNilai/{nim}', [DokumenController::class, 'formNilai'])->name('DokumenController.formNilai');
+Route::post('/nilaiKKN/simpanNilai', [DokumenController::class, 'simpanNilai'])->name('DokumenController.simpanNilai');
 Route::get('/dokumenKelompokKKN', function () {return view('dosen/dokumenKelompokKKN');});
 Route::get('/rencanaKegiatan', function () {return view('dosen/rencanaKegiatan');});
 Route::get('/laporanKegiatan', function () {return view('dosen/laporanKegiatan');});
 Route::get('/logbookKegiatan', function () {return view('dosen/logbookKegiatan');});
-// Route::get('/nilaiKKN', function () {return view('dosen/nilaiKKN');});
-// Route::get('/nilaiKKN/formNilai', function () {return view('dosen/formNilai');});
-Route::get('/nilaiKKN', [DokumenController::class, 'nilaiKKN'])->name('DokumenController.nilaiKKN');
-Route::get('/nilaiKKN/formNilai', [DokumenController::class, 'formNilai'])->name('DokumenController.formNilai');
-Route::post('/nilaiKKN/simpanNilai', [DokumenController::class, 'simpanNilai'])->name('DokumenController.simpanNilai');
+
 
 
 // KETUA KELOMPOK
@@ -117,20 +87,17 @@ Route::get('/logbookketua', [DokumenController::class, 'logbookketua'])->name('D
 Route::get('/logbookketua/formlogbook', [DokumenController::class, 'formlogbook'])->name('DokumenController.formlogbook');
 Route::post('/logbookketua/simpanLogbook', [DokumenController::class, 'simpanLogbook'])->name('DokumenController.simpanLogbook');
 Route::get('/logbookketua/edit/{id}', [DokumenController::class, 'editLogbook'])->name('DokumenController.editLogbook');
-Route::post('/logbookketua/update/{id}', [DokumenController::class, 'updateLogbook'])->name('DokumenController.updateLogbook');
+Route::post('/logbookketua/update/{id}', [DokumenController::class, 'updateLogbook'])->name('DokumenController.updateLogbook');     
 Route::get('/dokumen/show/{id}', [DokumenController::class, 'show'])->name('DokumenController.show');
 Route::delete('/logbookKetua/delete/{id}', [DokumenController::class, 'deleteLogbook'])->name('DokumenController.deleteLogbook');
 
 
 //MAHASISWA/ANGGOTA KELOMPOK
 Route::get('/dashboardAnggota', [DokumenController::class, 'dashboardAnggota'])->name('DokumenController.dashboardAnggota');
-Route::get('/dokumenAnggotaKelompok', [DokumenController::class, 'dokumenAnggotaKelompok'])->name('DokumenController.dokumenAnggotaKelompok');
-
-Route::get('/dashboardAnggota', function () {return view('anggota/dashboardAnggota');});
-Route::get('/dokumenAnggota', function () {return view('anggota/dokumenAnggota');});
-Route::get('/rencanaAnggota', function () {return view('anggota/rencanaAnggota');});
-Route::get('/laporanAnggota', function () {return view('anggota/laporanAnggota');});
-Route::get('/logbookAnggota', function () {return view('anggota/logbookAnggota');});
+Route::get('/dokumenAnggota', [DokumenController::class, 'dokumenAnggota'])->name('DokumenController.dokumenAnggota');
+Route::get('/rencanaAnggota', [DokumenController::class, 'rencanaAnggota'])->name('rencanaAnggota');
+Route::get('/logbookAnggota', [DokumenController::class, 'logbookAnggota'])->name('logbookAnggota');
+Route::get('/laporanAnggota', [DokumenController::class, 'laporanAnggota'])->name('laporanAnggota');
 
 Route::get('/postingan', function () {return view('postingan/createpostingan');});
 Route::get('/index', [DokumenController::class, 'index'])->name('DokumenController.index');

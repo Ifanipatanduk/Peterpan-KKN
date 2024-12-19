@@ -58,7 +58,7 @@
                     </div>
 
                     <div class="form-group mt-3">
-                        <button type="submit" class="btn btn-success"><i class="bi bi-pencil"></i>Simpan</button>
+                        <button type="submit" class="btn btn-success"></i>Simpan</button>
                     </div>
                 </form>
                 </div>

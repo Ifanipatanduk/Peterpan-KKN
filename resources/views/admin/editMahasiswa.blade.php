@@ -48,25 +48,26 @@
                     </div>
 
                     <div class="form-group">
-                            <label for="prodi">Prodi</label>
-                            <select name="prodi" id="prodi" class="form-control" required>
-                                <option value=""> Pilih Prodi</option>
-                                <option value="Prodi Filsafat Keilahian" {{$dokumen->prodi === 'Prodi Filsafat Keilahian' ? 'selected' : ''}}>Pordi Filsafat Keilahian</option>
-                                <option value="Prodi Arsitektur"{{ $dokumen->prodi === 'Prodi Arsitektur' ? 'selected' : ''}}>Arsitektur</option>
-                                <option value="Prodi Desain Produk" {{$dokumen->prodi === 'Prodi Desain Produk' ? 'selected' : ''}}>Desain Produk</option>
-                                <option value="Prodi Biologi" {{$dokumen->prodi === 'Prodi Biologi' ? 'selected' : ''}}> Biologi</option>
-                                <option value="Prodi Manajemen" {{$dokumen->prodi === 'Prodi Manajemen' ? 'selected' : ''}}>Manajemen</option>
-                                <option value="Prodi Akuntansi"{{$dokumen->prodi === 'Prodi Akuntansi' ? 'selected' : ''}}>Akuntansi</option>
-                                <option value="Prodi Informatika" {{$dokumen->prodi === 'Prodi Informatika' ? 'selected' : ''}}>Informatika</option>
-                                <option value="Prodi Sistem Informasi" {{$dokumen->prodi === 'Prodi Sistem Informaasi' ? 'selected' : ''}}>Sistem Informasi</option>
-                                <option value="Prodi Kedokteran" {{$dokumen->prodi === 'Prodi Kedokteran' ? 'selected' : ''}}>Kedokteran</option>
-                                <option value="Prodi Pendidikan Bahasa Inggris" {{$dokumen->prodi === 'Prodi Pendidika Bahasa Inggris' ? 'selected' : ''}}>Pendidikan Bahasa Inggris</option>
-                                <option value="Prodi Humaniora" {{$dokumen->prodi === 'Prodi Humaniora' ? 'selected' : ''}}>Studi Humanitas</option>
-                            </select>
+                    <label for="prodi">Prodi</label>
+                        <select name="prodi" id="prodi" class="form-control" required>
+                            <option value="">Pilih Prodi</option>
+                            <option value="Prodi Filsafat Keilahian" {{ $dokumen->Prodi === 'Prodi Filsafat Keilahian' ? 'selected' : '' }}>Filsafat Keilahian</option>
+                            <option value="Prodi Arsitektur" {{ $dokumen->Prodi === 'Prodi Arsitektur' ? 'selected' : '' }}>Arsitektur</option>
+                            <option value="Prodi Desain Produk" {{ $dokumen->Prodi === 'Prodi Desain Produk' ? 'selected' : '' }}>Desain Produk</option>
+                            <option value="Prodi Biologi" {{ $dokumen->Prodi === 'Prodi Biologi' ? 'selected' : '' }}>Biologi</option>
+                            <option value="Prodi Manajemen" {{ $dokumen->Prodi === 'Prodi Manajemen' ? 'selected' : '' }}>Manajemen</option>
+                            <option value="Prodi Akuntansi" {{ $dokumen->Prodi === 'Prodi Akuntansi' ? 'selected' : '' }}>Akuntansi</option>
+                            <option value="Prodi Informatika" {{ $dokumen->Prodi === 'Prodi Informatika' ? 'selected' : '' }}>Informatika</option>
+                            <option value="Prodi Sistem Informasi" {{ $dokumen->Prodi === 'Prodi Sistem Informasi' ? 'selected' : '' }}>Sistem Informasi</option>
+                            <option value="Prodi Kedokteran" {{ $dokumen->Prodi === 'Prodi Kedokteran' ? 'selected' : '' }}>Kedokteran</option>
+                            <option value="Prodi Sistem Informasi" {{ $dokumen->Prodi === 'Prodi Sistem Informasi' ? 'selected' : '' }}>Profesi Kedokteran</option>
+                            <option value="Prodi Pendidikan Bahasa Inggris" {{ $dokumen->Prodi === 'Prodi Pendidikan Bahasa Inggris' ? 'selected' : '' }}>Pendidikan Bahasa Inggris</option>
+                            <option value="Prodi Humaniora" {{ $dokumen->Prodi === 'Prodi Humaniora' ? 'selected' : '' }}>Studi Humanitas</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="fakultas">Fakultas</label>
+                    <label for="fakultas">Fakultas</label>
                         <select name="fakultas" id="fakultas" class="form-control" required>
                             <option value="">Pilih Fakultas</option>
                             <option value="Fakultas Teologi" {{ $dokumen->Fakultas === 'Fakultas Teologi' ? 'selected' : '' }}>Fakultas Teologi</option>
@@ -80,7 +81,7 @@
                     </div>
 
                     <div class="form-group mt-3">
-                        <button type="submit" class="btn btn-success"><i class="bi bi-pencil"></i>Simpan</button>
+                        <button type="submit" class="btn btn-success">Simpan</button>
                     </div>
                 </form>
                 </div>

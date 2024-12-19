@@ -8,6 +8,17 @@ class NilaiKKN extends Model
 {
     use HasFactory;
     protected $table ='nilai_kkn';
-    protected $fillable = ['Nilai'];
+    protected $fillable = ['nim', 'Nama', 'Nilai'];
     protected $primaryKey = 'id_nilai';
+
+    public function mahasiswa()
+    {
+        return $this->belongsTo(Mahasiswa::class, 'nim', 'nim'); 
+    }
+
+    public function nilai()
+    {
+        return $this->belongsTo(NilaiKKN::class, 'id_nilai', 'id_nilai');
+    }
+
 }

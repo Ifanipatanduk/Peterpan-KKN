@@ -27,20 +27,20 @@
                         </div>
 
                         <div class="form-group">
-                        <label>Jenis Kelamin</label>
-                        <div class="d-flex">
-                            <div class="form-check me-4">
-                                <input type="radio" name="jenis_kelamin" id="Laki-laki" value="laki-laki" class="form-check-input" required>
-                                <label for="Laki-Laki" class="form-check-label">Laki-Laki</label>
-                            </div>
-                            &nbsp;&nbsp;&nbsp;
-                            <div class="form-check">
-                                <input type="radio" name="jenis_kelamin" id="Perempuan" value="Perempuan" class="form-check-input">
-                                <label for="Perempuan" class="form-check-label">Perempuan</label>
+                            <label>Jenis Kelamin</label>
+                            <div class="d-flex">
+                                <div class="form-check me-4">
+                                    <input type="radio" name="jenis_kelamin" id="Laki-laki" value="Laki-Laki" class="form-check-input" {{ $dokumen->Jenis_kelamin === 'Laki-Laki' ? 'checked' : '' }} required>
+                                    <label for="Laki-Laki" class="form-check-label">Laki-Laki</label>
+                                </div>
+                                &nbsp;&nbsp;&nbsp;
+                                <div class="form-check">
+                                    <input type="radio" name="jenis_kelamin" id="Perempuan" value="Perempuan" class="form-check-input" {{ $dokumen->Jenis_kelamin === 'Perempuan' ? 'checked' : '' }}>
+                                    <label for="Perempuan" class="form-check-label">Perempuan</label>
+                                </div>
                             </div>
                         </div>
-                        </div>
-                        
+
                         <div class="form-group">
                             <label for="fakultas">Fakultas</label>
                             <select name="fakultas" id="fakultas" class="form-control" required>

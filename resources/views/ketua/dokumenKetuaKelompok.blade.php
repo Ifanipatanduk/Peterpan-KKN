@@ -85,7 +85,7 @@
                                             <th class="text-center">Judul</th>
                                             <th class="text-center">Deskripsi</th>
                                             <th class="text-center">File</th>
-                                            <th>Action</th>
+                                            <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>

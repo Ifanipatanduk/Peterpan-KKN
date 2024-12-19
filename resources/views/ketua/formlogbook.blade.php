@@ -31,6 +31,7 @@
                             <label>Deskripsi</label>
                             <input type="text" name="deskripsi" class="form-control" required>
                         </div>
+                        
                         <div class="form-group"><br/>
                             <button type="submit" class="btn" style="background-color: #1A5139; color: white;">Simpan</button>
                         </div>

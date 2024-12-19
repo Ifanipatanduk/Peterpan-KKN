@@ -6,7 +6,7 @@
 
         <div class="d-flex justify-content-center mt-4"> 
         <div class="text-center mx-3">
-            <a href="/kelompokKKN" class="nav-link fw-bold">
+            <a href="/dosen/dataAnggota" class="nav-link fw-bold">
                 <img src="{{ asset('asset/youth.png') }}" alt="Kelompok KKN" class="mb-2" style="height: 120px; width: 120px;">
                 <p>DATA MAHASISWA</p>
             </a>
